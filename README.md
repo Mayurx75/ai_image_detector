@@ -6,57 +6,56 @@
     <title>AI Image Detector - README</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background: linear-gradient(135deg, #6a1b9a, #bdbdbd);
             color: #333;
         }
         header {
-            background-color: #4CAF50;
+            background-color: #6a1b9a;
             color: white;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
         }
         h1, h2 {
-            color: #4CAF50;
+            color: white;
+        }
+        .container {
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 900px;
+            color: #333;
         }
         h3 {
             margin-top: 20px;
+            color: #6a1b9a;
         }
         p, pre {
-            font-size: 1rem;
-            line-height: 1.5;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
         pre {
-            background-color: #282c34;
-            color: #fff;
+            background-color: #2c3e50;
+            color: #ecf0f1;
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
         }
         code {
             font-size: 1rem;
+            color: #f39c12;
         }
-        .copy-button {
-            background-color: #4CAF50;
+        .badge {
+            background-color: #f39c12;
             color: white;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-top: 5px;
-        }
-        .copy-button:hover {
-            background-color: #45a049;
-        }
-        .container {
-            padding: 20px;
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            margin-top: 10px;
         }
         footer {
-            background-color: #4CAF50;
+            background-color: #6a1b9a;
             color: white;
             text-align: center;
             padding: 10px;
@@ -66,110 +65,47 @@
 </head>
 <body>
     <header>
-        <h1>AI Image Detector</h1>
+        <h1>AI Image Detector 🚀</h1>
+        <p>Detect AI-generated images using a ViT model!</p>
     </header>
-    
+
     <div class="container">
         <section>
-            <h2>🚀 Overview</h2>
-            <p>This project is a proof-of-concept demonstration of using a <strong>ViT model</strong> to predict whether an artistic image was generated using <strong>AI</strong>.</p>
-            <p>The app utilizes the <code>"umm-maybe/AI-image-detector"</code> model, which was trained in October 2022. Although it doesn't include data from newer models like <strong>Midjourney 5</strong>, <strong>SDXL</strong>, or <strong>DALLE-3</strong>, it still aims to correctly identify samples from their predecessors.</p>
-            <p><strong>Note:</strong> This tool is designed for artistic images only, not for deepfake photo detection or general computer imagery. It can serve as one of many indicators that an image was AI-generated.</p>
-            <p><a href="https://medium.com/@matthewmaybe/can-an-ai-learn-to-identify-ai-art-545d9d6af226" target="_blank">Read the full blog post about this project</a></p>
-        </section>
-
-        <section>
-            <h2>⚙️ Installation</h2>
-            <p>Clone the repository and install the required dependencies:</p>
-            <pre><code>git clone https://github.com/yourusername/ai-image-detector.git
-cd ai-image-detector
-pip install -r requirements.txt
-</code></pre>
-        </section>
-
-        <section>
-            <h2>🧑‍💻 Usage</h2>
-            <p>Run the app with the following command:</p>
-            <pre><code>python app.py
-</code></pre>
-            <p>This will start a Gradio interface where you can upload an image to check whether it is AI-generated.</p>
-
-            <h3>Example Usage:</h3>
-            <pre><code>import gradio as gr
-from transformers import pipeline
-
-# Load the image classification pipeline
-pipe = pipeline("image-classification", "umm-maybe/AI-image-detector")
-
-def image_classifier(image):
-    outputs = pipe(image)
-    results = {}
-    for result in outputs:
-        results[result['label']] = result['score']
-    return results
-
-title = "Maybe's AI Art Detector"
-description = """
-This app is a proof-of-concept demonstration of using a ViT model to predict whether an artistic image was generated using AI.
-"""
-
-# Create Gradio interface
-demo = gr.Interface(fn=image_classifier, inputs=gr.Image(type="pil"), outputs="label", title=title, description=description)
-
-# Launch the app
-demo.launch(show_api=False)
-</code></pre>
-        </section>
-
-        <section>
-            <h2>📸 Example</h2>
-            <p>You can upload an image to the app, and it will output the likelihood that the image is AI-generated.</p>
-
-            <h3>Inputs:</h3>
+            <h2>Overview</h2>
+            <p>Welcome to the **AI Image Detector**! This project uses a Vision Transformer (ViT) model to predict whether an image was generated by AI. Built with **Gradio**, it provides an easy interface to upload images and check their authenticity.</p>
+            <p><strong>Key Features:</strong></p>
             <ul>
-                <li>Image (Upload a .jpg or .png file)</li>
+                <li>Detects whether an image is AI-generated</li>
+                <li>Uses a pre-trained ViT model</li>
+                <li>Provides a Gradio-based user interface</li>
             </ul>
-
-            <h3>Outputs:</h3>
-            <ul>
-                <li>A label indicating the likelihood of the image being AI-generated.</li>
-            </ul>
+            <p>This model is designed for artistic images and works best with older AI-generated images from tools like **Midjourney** or **Stable Diffusion**.</p>
+            <span class="badge">Gradio 3.4.1</span>
         </section>
 
         <section>
-            <h2>🧑‍💻 Code Snippets</h2>
-            <p>You can easily copy the code snippets provided below for quick implementation.</p>
+            <h2>Installation</h2>
+            <p>To set up the AI Image Detector, follow these steps:</p>
 
-            <h3>1. Main Application Code</h3>
-            <pre><code class="language-python">import gradio as gr
-from transformers import pipeline
+            <h3>Step 1: Clone the Repository</h3>
+            <pre><code>git clone https://github.com/yourusername/ai-image-detector.git</code></pre>
 
-pipe = pipeline("image-classification", "umm-maybe/AI-image-detector")
+            <h3>Step 2: Install Dependencies</h3>
+            <pre><code>cd ai-image-detector
+pip install -r requirements.txt</code></pre>
 
-def image_classifier(image):
-    outputs = pipe(image)
-    results = {}
-    for result in outputs:
-        results[result['label']] = result['score']
-    return results
+            <h3>Step 3: Run the Application</h3>
+            <pre><code>python app.py</code></pre>
 
-title = "Maybe's AI Art Detector"
-description = """
-This app is a proof-of-concept demonstration of using a ViT model to predict whether an artistic image was generated using AI.
-"""
+            <h3>Step 4: Access the App</h3>
+            <p>Once the app is running, visit the Gradio interface in your browser to upload an image and determine if it is AI-generated.</p>
+        </section>
 
-demo = gr.Interface(fn=image_classifier, inputs=gr.Image(type="pil"), outputs="label", title=title, description=description)
-demo.launch(show_api=False)
-</code></pre>
-            <button class="copy-button" onclick="copyToClipboard('import gradio as gr\nfrom transformers import pipeline\n\npipe = pipeline('image-classification', 'umm-maybe/AI-image-detector')\n\ndef image_classifier(image):\n    outputs = pipe(image)\n    results = {}\n    for result in outputs:\n        results[result['label']] = result['score']\n    return results\n\ntitle = 'Maybe's AI Art Detector'\ndescription = '''\nThis app is a proof-of-concept demonstration of using a ViT model to predict whether an artistic image was generated using AI.\n'''\n\ndemo = gr.Interface(fn=image_classifier, inputs=gr.Image(type='pil'), outputs='label', title=title, description=description)\ndemo.launch(show_api=False)')">Copy</button>
+        <section>
+            <h2>Usage Example</h2>
+            <p>Here is a simple example of how to use the app:</p>
 
-            <h3>2. Installation Instructions</h3>
-            <pre><code>git clone https://github.com/yourusername/ai-image-detector.git
-cd ai-image-detector
-pip install -r requirements.txt
-</code></pre>
-
-            <h3>3. Gradio Interface Code</h3>
+            <h3>Code Example:</h3>
             <pre><code>import gradio as gr
 from transformers import pipeline
 
@@ -188,23 +124,17 @@ This app is a proof-of-concept demonstration of using a ViT model to predict whe
 """
 
 demo = gr.Interface(fn=image_classifier, inputs=gr.Image(type="pil"), outputs="label", title=title, description=description)
-demo.launch(show_api=False)
-</code></pre>
+demo.launch(show_api=False)</code></pre>
+        </section>
+
+        <section>
+            <h2>Further Information</h2>
+            <p>If you encounter any issues or have any questions, feel free to open an issue on our [GitHub issues page](https://github.com/yourusername/ai-image-detector/issues).</p>
         </section>
     </div>
 
     <footer>
         <p>&copy; 2024 AI Image Detector. All rights reserved.</p>
     </footer>
-
-    <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(function() {
-                alert("Code copied to clipboard!");
-            }).catch(function(error) {
-                alert("Failed to copy code: " + error);
-            });
-        }
-    </script>
 </body>
 </html>
