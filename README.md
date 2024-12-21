@@ -32,7 +32,7 @@ cd ai-image-detector
 pip install -r requirements.txt
 ```
 
-### Step 3️⃣ 3: Run the Application
+### 3️⃣ Step 3: Run the Application
 
 Launch the app by running the following command:
 
