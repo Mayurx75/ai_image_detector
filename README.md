@@ -1,6 +1,3 @@
-
-
-```markdown
 # AI Image Detector 🚀
 
 Welcome to the **AI Image Detector**! This project uses a **Vision Transformer (ViT)** model to classify images as either **AI-generated** or **real**. Built with **Gradio**, the tool offers a simple and interactive way to detect AI-generated art.
@@ -98,7 +95,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 </p>
 
 &copy; 2024 **AI Image Detector**. All rights reserved.
-```
 
 ### Steps Included:
 1. **Clone the Repository**: To copy the repository to your local machine.
